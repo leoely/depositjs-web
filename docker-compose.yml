@@ -1,0 +1,10 @@
+services:
+  node:
+    image: node
+    ports:
+      - 3006:3006
+    working_dir: /var/recordsjs-web/
+    volumes:
+      - ./dist:/var/recordsjs-web/dist/
+      - ./node_modules/:/var/recordsjs-web/node_modules/
+    command: node ./dist/index.js -p 3006

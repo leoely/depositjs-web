@@ -1,0 +1,12 @@
+.parameter
+  display: inline
+.name
+  color: rgb(20, 20, 20)
+  background-color: rgb(220, 100, 100)
+  padding: 0 3px 0 3px
+  border-radius: 3px
+  margin: 0 4px 0 4px
+.description
+  color: rgb(200, 200, 200)
+  text-decoration: solid underline rgb(200, 200, 200) 3px
+  margin-right: 4.5px

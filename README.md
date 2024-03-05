@@ -1,1 +1,3 @@
-# storagejs-web
+# recordsjs-web
+
+Records.js document website.
