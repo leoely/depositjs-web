@@ -1,3 +1,3 @@
-# recordsjs-web
+# Depositjs-web
 
-Records.js document website.
+deposit.js document website.
