@@ -1,10 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
   mode: 'production',
   entry: {
-    main: './src/client/index.js',
+    main: './src/index.js',
   },
   output: {
     filename: '[name].bundle.js',

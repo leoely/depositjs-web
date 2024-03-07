@@ -1,7 +1,7 @@
 {
-  "name": "depositjs-web",
+  "name": "deposite.js-web",
   "version": "0.0.1",
-  "description": "deposit.js document website.",
+  "description": "Deposite.js document website.",
   "main": "index.js",
   "repository": "git@github.com:leobrad/recordsjs-web.git",
   "author": "Leo Brad",
