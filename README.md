@@ -1,3 +1,3 @@
-# Deposite.js-web
+# Deposit.js-web
 
-Deposite.js document website.
+Deposit.js document website.
