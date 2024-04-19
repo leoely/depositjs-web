@@ -4,6 +4,7 @@ import style from './index.module.css';
 export default function javascriptTemplate(e) {
   const { type, elem, } = e;
   switch (type) {
+    case 'delete':
     case 'identifer':
       return <span className={style.identifer}>{elem}</span>;
     case 'parenthese':
