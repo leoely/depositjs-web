@@ -3,8 +3,8 @@ services:
     image: node
     ports:
       - 3006:3006
-    working_dir: /var/recordsjs-web/
+    working_dir: /var/depositjs-web/
     volumes:
-      - ./dist:/var/recordsjs-web/dist/
-      - ./node_modules/:/var/recordsjs-web/node_modules/
+      - ./dist:/var/depositjs-web/dist/
+      - ./node_modules/:/var/depositjs-web/node_modules/
     command: node ./dist/index.js -p 3006

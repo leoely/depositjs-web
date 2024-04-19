@@ -2,7 +2,7 @@ import { series, src, dest, } from 'gulp';
 import babel from 'gulp-babel';
 
 function build() {
-  return src('src/**/*.js')
+  return src('src/server/**/*.js')
     .pipe(babel())
     .pipe(dest('dist'));
 }
