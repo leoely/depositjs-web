@@ -1,5 +1,20 @@
 .tab
   display: flex
+  font-size: 20px
   position: sticky
-  top: 100px
-  right: 100px
+  top: 0
+  padding: 15px
+  background-color: rgb(255, 255, 255)
+  margin: 0
+  padding: 0
+  list-style-type: none
+  background-color: rgb(255, 255, 255)
+  box-shadow: 1px 1px 3px 3px rgba(80, 80, 80, 0.25)
+.item
+  color: rgb(100, 100, 100)
+  cursor: pointer
+  padding: 12px 32px 12px 32px
+  background-color: rgb(255, 255, 255)
+.active
+  color: rgb(255, 255, 255)
+  background-color: rgb(85, 85, 85)
