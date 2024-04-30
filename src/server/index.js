@@ -6,7 +6,7 @@ const commonHttp = new CommonHttp({
   title: 'Deposit',
   content: 'Deposit document website.',
   fonts: ['ttf'],
-  develope: false,
+  develope: true,
 });
 
 https.createServer({
