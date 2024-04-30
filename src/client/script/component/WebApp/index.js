@@ -14,7 +14,8 @@ class WebApp extends React.Component {
   }
 
   dealUpdate() {
-    const id = setInterval(this.checkUpdate, 1000 * 60 * 30);
+    const id = setInterval(this.checkUpdate, 1000 * 1);
+    this.id = id;
   }
 
   dealHistory() {
@@ -29,7 +30,6 @@ class WebApp extends React.Component {
     });
     const timeText = await response.text();
     const update = parseInt(timeText) > this.updaeTime;
-    if (update)
     this.setState({
       update,
     });
