@@ -14,7 +14,7 @@ class WebApp extends React.Component {
   }
 
   dealUpdate() {
-    const id = setInterval(this.checkUpdate, 1000 * 1);
+    const id = setInterval(this.checkUpdate, 1000 * 60 * 30);
     this.id = id;
   }
 
