@@ -10,10 +10,11 @@ class WebApp extends React.Component {
   constructor(props) {
     super(props);
     this.checkUpdate = this.checkUpdate.bind(this);
+    this.updaeTime = new Date().getTime();
   }
 
   dealUpdate() {
-    const id = setInterval(this.checkUpdate, 1000 * 60);
+    const id = setInterval(this.checkUpdate, 1000 * 60 * 30);
   }
 
   dealHistory() {
@@ -23,11 +24,12 @@ class WebApp extends React.Component {
   }
 
   async checkUpdate() {
-    const response = fetch('/update/time', {
+    const response = await fetch('/update/time', {
       method: 'POST',
     });
     const timeText = await response.text();
-    const update = parseInt(timeText) > new Date().getTime();
+    const update = parseInt(timeText) > this.updaeTime;
+    if (update)
     this.setState({
       update,
     });
@@ -36,6 +38,7 @@ class WebApp extends React.Component {
   async componentDidMount() {
     this.dealUpdate();
     this.dealHistory();
+    await this.ownComponentDidMount();
   }
 
   async componentWillUnmount() {

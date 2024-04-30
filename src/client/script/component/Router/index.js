@@ -24,7 +24,7 @@ class Router extends WebApp {
     };
   }
 
-  async componentDidMount() {
+  async ownComponentDidMount() {
     await this.bindEvent();
     emitter.send('page' + window.location.pathname);
   }
