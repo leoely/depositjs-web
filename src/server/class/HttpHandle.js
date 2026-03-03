@@ -750,8 +750,8 @@ class HttpHandle {
     switch (safe) {
       case 'true':
         http2.createSecureServer({
-          key: fs.readFileSync('asset/temporary-key.pem'),
-          cert: fs.readFileSync('asset/temporary-cert.pem'),
+          key: fs.readFileSync('asset/deposit.js-key.pem'),
+          cert: fs.readFileSync('asset/deposit.js-cert.pem'),
         }, async (req, res) => {
           await this.handle(req, res);
         }).listen(port);
