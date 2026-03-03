@@ -1,6 +1,6 @@
 .confirm
-  position: absolute
-  width: 680px
+  position: fixed
+  width: 750px
   top: calc(50% - 100px)
   left: calc(50% - 340px)
   padding: 15px 0px 10px 0px
@@ -10,11 +10,10 @@
   font-size: 17px
   padding: 0 20px 30px 20px
   border-bottom: 1px solid rgb(255, 255, 255)
-.title:before
+.titleIcon
   font-size: 43px
-  content: '\f56d'
   margin-right: 15px
-.btngrp
+.btnGrp
   display: flex
   margin-top: 25px
   justify-content: center
@@ -24,17 +23,15 @@
   display: inline-flex
   font-size: 16px
   padding: 6.5px 10px 6.5px 10px
-  margin: 0 100px 0 100px
+  margin: 0 50px 0 50px
   border: 0px
   border-radius: 2.5px
   align-items: center
-.btn:before
+.icon
   border-right: 1px solid rgb(0, 0, 0, 0.6)
   margin-right: 8px
   padding-right: 8px
-.update:before
+.updateIcon
   font-size: 15px
-  content: '\f252'
-.ignore:before
+.ignoreIcon
   font-size: 16px
-  content: '\f5c8'

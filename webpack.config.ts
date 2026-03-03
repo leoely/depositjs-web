@@ -1,34 +1,12 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-
 export default {
-  mode: 'production',
   entry: {
     main: './src/client/index.js',
   },
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[id].chunk.js',
-    path: path.resolve(__dirname, 'static'),
+    path: './dist',
   },
-   optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          keep_classnames: true,
-        },
-      }),
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      minify: true,
-      favicon: './asset/favicon.png',
-      template: './src/client/html/index.html',
-    }),
-  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
@@ -73,17 +51,11 @@ export default {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        }
-      },
-      {
-        test: /\.(woff|woff2|ttf|eot)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ]
       },
     ],
   },

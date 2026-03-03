@@ -1,43 +1,37 @@
 import React from 'react';
-import checkUpdate from '~/client/script/lib/checkUpdate';
 import global from '~/client/script/obj/global';
 
 const {
   location,
+  clientFetch,
 } = global;
 
 class WebApp extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      update: false,
+    };
     this.checkUpdate = this.checkUpdate.bind(this);
-    this.updaeTime = new Date().getTime();
-  }
-
-  dealUpdate() {
-    const id = setInterval(this.checkUpdate, 1000 * 60 * 30);
-    this.id = id;
-  }
-
-  dealHistory() {
-    window.addEventListener('popstate', (event) => {
-      location.to(event.currentTarget.location.pathname);
-    });
+    this.time = new Date().getTime();
   }
 
   async checkUpdate() {
-    const response = await fetch('/update/time', {
+    const response = await clientFetch.fetch('/update/message', {
       method: 'POST',
     });
-    const timeText = await response.text();
-    const update = parseInt(timeText) > this.updaeTime;
-    this.setState({
-      update,
-    });
+    if (response !== undefined && response.ok) {
+      const message = await response.json();
+      const { time, } = this;
+      this.setState({ update: message.updateTime > time, });
+    }
   }
 
   async componentDidMount() {
-    this.dealUpdate();
-    this.dealHistory();
+    this.id = setInterval(this.checkUpdate, 1000 * 60 * 20);
+    window.addEventListener('popstate', (event) => {
+      location.to(event.currentTarget.location.pathname);
+    });
     await this.ownComponentDidMount();
   }
 

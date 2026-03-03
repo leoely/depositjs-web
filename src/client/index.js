@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { StrictMode, } from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from '~/client/script/component/Router';
-import global from '~/client/script/obj/global';
 import '~/client/style/index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-global.router = <Router />;
-root.render(<div style={{ height: '100%', }}>{global.router}</div>);
+function Application() {
+  return (
+    <StrictMode>
+      <div style={{ height: '100%', }}>
+        <Router />
+      </div>
+    </StrictMode>
+  );
+}
+
+const domNode = document.getElementById('root');
+const root = ReactDOM.createRoot(domNode);
+root.render(<Application />);

@@ -1,18 +1,22 @@
 class Dimmer {
   constructor() {
-    this.page = document.getElementById('page');
+    const pageElem = document.getElementById('page');
+    if (pageElem === null) {
+      throw new Error('[Error] The page element does not exist in the DOM.');
+    }
+    this.pageElem = pageElem;
   }
 
   show() {
-    const { page, } = this;
-    page.style.backgroundColor = 'rgb(255, 255, 255)';
-    page.style.filter = 'brightness(0.5)';
+    const { pageElem, } = this;
+    pageElem.style.backgroundColor = 'rgb(255, 255, 255)';
+    pageElem.style.filter = 'brightness(0.5)';
   }
 
   hidden() {
-    const { page, } = this;
-    page.style.backgroundColor = null;
-    page.style.filter = null;
+    const { pageElem, } = this;
+    pageElem.style.backgroundColor = null;
+    pageElem.style.filter = null;
   }
 }
 

@@ -1,18 +1,20 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   mode: 'development',
   entry: {
     main: './src/client/index.js',
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       minify: true,
+      favicon: './asset/favicon.png',
       template: './src/client/html/index.html',
     }),
   ],
@@ -20,16 +22,32 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.tsx'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: [
-          /node_modules/,
-        ],
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+          {
+            loader: 'babel-loader',
+          },
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/i,
@@ -48,11 +66,17 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-          }
-        ]
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
       },
     ],
   },
