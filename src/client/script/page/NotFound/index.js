@@ -1,12 +1,19 @@
 import React from 'react';
+import {
+  FontAwesomeIcon,
+} from '@fortawesome/react-fontawesome';
+import {
+  faEarthAmericas,
+} from '@fortawesome/free-solid-svg-icons';
+import Page from '~/client/script/component/Page';
 import style from './index.module.css';
-import formatLocation from '~/client/script/lib/formatLocation';
+import formatLocation from '~/client/script/lib/util/formatLocation';
 
-class NotFound extends React.Component {
+class NotFound extends Page {
   render() {
-    return(
+    return (
       <div className={style.notfound}>
-        <span className={style.earth}/>
+        <FontAwesomeIcon className={style.earthIcon} icon={faEarthAmericas} />
         <span className={style.question}>?</span>
         Location
         <span className={style.location}>{formatLocation(location.pathname)}</span>
